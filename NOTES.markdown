@@ -60,6 +60,9 @@ This requires knowing all pointers to memory.
 
 ### References
 
+These allow you to implement caches and take sophisticated actions for cleaning up reclaimable objects.
+The finalize method isn't reliable enough, as it can only be called once.
+
 https://docs.oracle.com/javase/8/docs/api/java/lang/ref/package-summary.html
 
  * An object is strongly reachable if it can be reached by some thread without traversing any reference objects. A newly-created object is strongly reachable by the thread that created it.
