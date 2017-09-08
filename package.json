@@ -1,0 +1,22 @@
+{
+  "name": "JVM-2",
+  "description": "Presentation on the JVM",
+  "homepage": "https://github.com/matthewfranglen/further-jvm-presentation",
+  "scripts": {
+    "start": "grunt serve"
+  },
+  "author": {
+    "name": "Matthew Franglen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthewfranglen/further-jvm-presentation.git"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
