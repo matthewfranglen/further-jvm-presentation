@@ -35,6 +35,29 @@ So manual memory management can be overlaid on top of this.
 This all sucks.
 It's fast though.
 
+### Pointer Bumping
+
+Pointer bumping is one of the fastest ways to allocate memory. (I don't know of a faster one)
+Allocation can take 10 machine instructions.
+
+This involves having a block of memory and a pointer to the start of free memory within that block.
+Allocation involves:
+
+ * Move free memory pointer forward
+ * Return original location as pointer to allocated memory
+
+Java uses pointer bumping to allocate memory.
+
+### Deallocating Memory
+
+Pointer bumping requires that all free memory be contiguous.
+If you free allocated memory then that leads to unusable gaps in the allocated memory space.
+
+Need to collect the free memory by compacting the in use memory.
+
+Compacting the memory requires changing the pointers that point to it.
+This requires knowing all pointers to memory.
+
 ### Garbage Collection
 
 What stops us from just allocating memory and never deallocating it?
