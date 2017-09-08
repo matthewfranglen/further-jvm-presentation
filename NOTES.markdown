@@ -58,8 +58,32 @@ Need to collect the free memory by compacting the in use memory.
 Compacting the memory requires changing the pointers that point to it.
 This requires knowing all pointers to memory.
 
+### References
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/ref/package-summary.html
+
+ * An object is strongly reachable if it can be reached by some thread without traversing any reference objects. A newly-created object is strongly reachable by the thread that created it.
+ * An object is softly reachable if it is not strongly reachable but can be reached by traversing a soft reference.
+ * An object is weakly reachable if it is neither strongly nor softly reachable but can be reached by traversing a weak reference. When the weak references to a weakly-reachable object are cleared, the object becomes eligible for finalization.
+ * An object is phantom reachable if it is neither strongly, softly, nor weakly reachable, it has been finalized, and some phantom reference refers to it.
+ * Finally, an object is unreachable, and therefore eligible for reclamation, when it is not reachable in any of the above ways. 
+
+Strong Reference - what you are used to using.
+Things pointed to by strong references are strongly reachable.
+
+Soft Reference - A reference to an object which does not prevent the object from becoming softly reachable.
+When cleared the object can become weakly reachable or worse.
+
+Weak Reference - A reference to an object which does not prevent the object from becoming weakly reachable.
+When cleared the object can be finalized.
+
+Phantom Reference - A reference to a potentially *reclaimed* object.
+
 ### Garbage Collection
 
 What stops us from just allocating memory and never deallocating it?
 We would need infinite memory.
 Garbage collection is an attempt to simulate infinite memory.
+
+The garbage collector needs to reclaim memory on demand.
+The garbage collector can collect things that are not strongly reachable.
